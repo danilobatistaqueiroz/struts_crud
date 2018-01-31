@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jan 25, 2018 5:53:43 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.keylesson.persistence.User" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="User">
+        <id name="id" type="int">
+            <column name="Id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="com.keylesson.persistence.Country" embed-xml="true" fetch="select" insert="true" name="country" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="Country_Id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="login" optimistic-lock="true" type="string" unique="false">
+            <column length="2000000000" name="Login" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="2000000000" name="Name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="age" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="Age"/>
+        </property>
+        <property generated="never" lazy="false" name="phone" optimistic-lock="true" type="string" unique="false">
+            <column length="2000000000" name="Phone"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="2000000000" name="Email" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="2000000000" name="Password" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="purchases" optimistic-lock="true" sort="unsorted" table="Purchase">
+            <key on-delete="noaction">
+                <column name="User_Id" not-null="true"/>
+            </key>
+            <one-to-many class="com.keylesson.persistence.Purchase" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

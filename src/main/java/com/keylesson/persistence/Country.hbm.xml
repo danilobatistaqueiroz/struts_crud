@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jan 25, 2018 5:53:43 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.keylesson.persistence.Country" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Country">
+        <id name="id" type="int">
+            <column name="Id"/>
+            <generator class="increment"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="2000000000" name="Name" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="users" optimistic-lock="true" sort="unsorted" table="User">
+            <key on-delete="noaction">
+                <column name="Country_Id"/>
+            </key>
+            <one-to-many class="com.keylesson.persistence.User" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-name="Category"/>
+  <table-filter match-name="Country"/>
+  <table-filter match-name="Product"/>
+  <table-filter match-name="Product_Category"/>
+  <table-filter match-name="User"/>
+  <table-filter match-name="Purchase"/>
+</hibernate-reverse-engineering>
